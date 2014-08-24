@@ -39,7 +39,8 @@
     });
 
     $("#logout").on("click", function(e) {
-
+        e.preventDefault();
+        authClient.logout();
     });
 
 })(jQuery);
