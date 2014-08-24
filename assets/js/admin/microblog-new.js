@@ -15,6 +15,7 @@
                 }
             } else {
                 // user is logged out
+                window.location = "index.html"
             }
         });
 
