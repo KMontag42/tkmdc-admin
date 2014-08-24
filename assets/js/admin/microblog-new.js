@@ -10,7 +10,8 @@
         e.preventDefault();
 
         firebase.child('microblog').push({
-            entry: $("#microblog-post-input")[0].value
+            entry: $("#microblog-post-input")[0].value,
+            date: Date.now()
         }, function(error) {
             if (error == "null") {
                 $("#microblog-error-alert").show();
