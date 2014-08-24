@@ -23,6 +23,8 @@
     });
 
     $("#login-form").on("submit", function(e) {
+        e.preventDefault();
+
         authClient.login("github", {
             email: $("#username")[0].value,
             password: $("#password")[0].value
