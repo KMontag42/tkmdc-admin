@@ -25,8 +25,11 @@
     <!--[if lt IE 9]>
     <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.firebase.com/js/client/1.0.19/firebase.js"></script>
     <![endif]-->
 
+    <script src="//cdn.firebase.com/js/client/1.0.19/firebase.js"></script>
+    <script src="//cdn.firebase.com/js/simple-login/1.6.3/firebase-simple-login.js"></script>
     <script src="assets/js/modernizr.js"></script>
 </head>
 <body>
@@ -56,7 +59,7 @@
 
     <div class="container mtb">
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-3">
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Quotes
@@ -66,11 +69,17 @@
                             <li>
                                 <a href="quotes-new.html">
                                     New Quote
+                                    <span class="badge alert-danger pull-right">
+                                        <span class="glyphicon glyphicon-record"></span>
+                                    </span>
                                 </a>
                             </li>
                             <li>
                                 <a href="quotes-list.html">
                                     Quote List
+                                    <span class="badge alert-success pull-right">
+                                        <span class="glyphicon glyphicon-th-list"></span>
+                                    </span>
                                 </a>
                             </li>
                         </ul>
@@ -82,9 +91,12 @@
                     </div>
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked">
-                            <li class="active">
+                            <li>
                                 <a href="comment-list.html">
                                     Comment List
+                                    <span class="badge alert-success pull-right">
+                                        <span class="glyphicon glyphicon-th-list"></span>
+                                    </span>
                                 </a>
                             </li>
                         </ul>
@@ -99,59 +111,37 @@
                             <li>
                                 <a href="blog-new.html">
                                     New Blog Entry
+                                    <span class="badge alert-danger pull-right">
+                                        <span class="glyphicon glyphicon-record"></span>
+                                    </span>
                                 </a>
                             </li>
                             <li>
                                 <a href="blog-list.html">
                                     Blog Entry List
+                                    <span class="badge alert-success pull-right">
+                                        <span class="glyphicon glyphicon-th-list"></span>
+                                    </span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-9 col-md-9 col-sm-9">
-                <div class="jumbotron">
-                    <div class="row-fluid text-center text-muted">
-                        <div class="col-lg-8 col-md-8 col-sm-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2">
-                            <h1>Comments</h1>
-                        </div>
-                        <div class="clearfix"></div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Microblog
                     </div>
-                    <div class="container-fluid">
-                        <div class="row-fluid">
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <p>
-                                    <div class="panel panel-default table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <td>Comment</td>
-                                                    <td>Quote</td>
-                                                    <td>Publish</td>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="comment-list-container">
-                                                <script id="comment-template" type="text/x-handlebars-template">
-                                                    {{#each this}}
-                                                    <tr>
-                                                        <td>{{comment}}</td>
-                                                        <td>{{quote}}</td>
-                                                        <td class="text-center">
-                                                            <input type="checkbox" class="publish-comment"
-                                                                   data-fbid="{{id}}" {{#if admin_selected}} checked {{/if}}
-                                                            />
-                                                        </td>
-                                                    </tr>
-                                                    {{/each}}
-                                                </script>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
+                    <div class="panel-body">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li>
+                                <a href="microblog-new.html">
+                                    New MB Entry
+                                    <span class="badge alert-danger pull-right">
+                                        <span class="glyphicon glyphicon-record"></span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -168,10 +158,6 @@
     <script src="assets/js/jquery.hoverex.min.js"></script>
     <script src="assets/js/jquery.prettyPhoto.js"></script>
     <script src="assets/js/jquery.isotope.min.js"></script>
-    <script src="//cdn.firebase.com/js/client/1.0.19/firebase.js"></script>
-    <script src="//cdn.firebase.com/js/simple-login/1.6.3/firebase-simple-login.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
     <script src="assets/js/custom.js"></script>
-    <script src="assets/js/admin/comment-list.js"></script>
 </body>
 </html>

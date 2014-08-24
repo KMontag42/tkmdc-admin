@@ -17,6 +17,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
 
+    <link href="assets/css/index.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]>
     <script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -25,138 +26,90 @@
     <!--[if lt IE 9]>
     <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <script src="//cdn.firebase.com/js/client/1.0.19/firebase.js"></script>
     <![endif]-->
 
     <script src="//cdn.firebase.com/js/client/1.0.19/firebase.js"></script>
+    <script src="//cdn.firebase.com/js/simple-login/1.6.3/firebase-simple-login.js"></script>
     <script src="assets/js/modernizr.js"></script>
 </head>
 <body>
 
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="//www.thekylemontag.com">tKMdc</a>
-            </div>
-            <div class="navbar-collapse collapse navbar-right">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">HOME</a></li>
-                    <!--<li><a href="about.html">ABOUT</a></li>-->
-                    <!--<li><a href="contact.html">CONTACT</a></li>-->
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="//www.thekylemontag.com">tKMdc</a>
         </div>
+        <div class="navbar-collapse collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="dashboard.html">HOME</a></li>
+                <!--<li><a href="about.html">ABOUT</a></li>-->
+                <!--<li><a href="contact.html">CONTACT</a></li>-->
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
     </div>
+</div>
 
-    <div class="container mtb">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Quotes
+<div class="container mtb">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3">
+            <div class="jumbotron text-center">
+                <h1>Login</h1>
+                <br/>
+                <div class="login-container">
+                    <p>
+                        <span class="glyphicon glyphicon-eye-open"></span><br/>
+                        Login using GitHub!
+                    </p>
+                    <div class="row-fluid">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                </div>
+                                <input type="text" id="username" class="form-control" placeholder="Login"/>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-                    <div class="panel-body">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li>
-                                <a href="quotes-new.html">
-                                    New Quote
-                                    <span class="badge alert-danger pull-right">
-                                        <span class="glyphicon glyphicon-record"></span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="quotes-list.html">
-                                    Quote List
-                                    <span class="badge alert-success pull-right">
-                                        <span class="glyphicon glyphicon-th-list"></span>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Comments
-                    </div>
-                    <div class="panel-body">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li>
-                                <a href="comment-list.html">
-                                    Comment List
-                                    <span class="badge alert-success pull-right">
-                                        <span class="glyphicon glyphicon-th-list"></span>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
+                    <br/>
+                    <div class="row-fluid">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-eye-close"></span>
+                                </div>
+                                <input type="password" id="password" class="form-control" placeholder="Password"/>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Blog Entries
-                    </div>
-                    <div class="panel-body">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li>
-                                <a href="blog-new.html">
-                                    New Blog Entry
-                                    <span class="badge alert-danger pull-right">
-                                        <span class="glyphicon glyphicon-record"></span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="blog-list.html">
-                                    Blog Entry List
-                                    <span class="badge alert-success pull-right">
-                                        <span class="glyphicon glyphicon-th-list"></span>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Microblog
-                    </div>
-                    <div class="panel-body">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li>
-                                <a href="microblog-new.html">
-                                    New MB Entry
-                                    <span class="badge alert-danger pull-right">
-                                        <span class="glyphicon glyphicon-record"></span>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <br/>
+                <button class="btn btn-primary btn-lg center-block" id="login-button">Login</button>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/retina-1.1.0.js"></script>
-    <script src="assets/js/jquery.hoverdir.js"></script>
-    <script src="assets/js/jquery.hoverex.min.js"></script>
-    <script src="assets/js/jquery.prettyPhoto.js"></script>
-    <script src="assets/js/jquery.isotope.min.js"></script>
-    <script src="assets/js/custom.js"></script>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/retina-1.1.0.js"></script>
+<script src="assets/js/jquery.hoverdir.js"></script>
+<script src="assets/js/jquery.hoverex.min.js"></script>
+<script src="assets/js/jquery.prettyPhoto.js"></script>
+<script src="assets/js/jquery.isotope.min.js"></script>
+<script src="assets/js/custom.js"></script>
+<script src="assets/js/index.js"></script>
 </body>
 </html>

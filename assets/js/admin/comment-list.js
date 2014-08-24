@@ -5,7 +5,21 @@
     var comment_template_script = $("#comment-template").html(),
         comment_template = Handlebars.compile(comment_template_script),
         firebase = new Firebase("https://tkmdc.firebaseio.com/"),
-        page_loaded = false;
+        page_loaded = false,
+        authClient = new FirebaseSimpleLogin(firebase, function(error, user) {
+            if (error) {
+                // an error occurred while attempting login
+                console.log(error);
+            } else if (user) {
+                // user authenticated with Firebase
+                console.log("User ID: " + user.uid + ", Provider: " + user.provider);
+                if (user.uid != "github:1686738") {
+                    window.location = "index.html"
+                }
+            } else {
+                // user is logged out
+            }
+        });
     
     firebase.child("quote-comments").on("value", function(snapshot) {
         

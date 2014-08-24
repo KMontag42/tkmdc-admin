@@ -6,7 +6,21 @@
         blog_entry_template = Handlebars.compile(blog_entry_template_script),
         firebase = new Firebase("https://tkmdc.firebaseio.com/"),
         entry_id = location.search.split("id=")[1],
-        page_loaded = false;
+        page_loaded = false,
+        authClient = new FirebaseSimpleLogin(firebase, function(error, user) {
+            if (error) {
+                // an error occurred while attempting login
+                console.log(error);
+            } else if (user) {
+                // user authenticated with Firebase
+                console.log("User ID: " + user.uid + ", Provider: " + user.provider);
+                if (user.uid != "github:1686738") {
+                    window.location = "index.html";
+                }
+            } else {
+                // user is logged out
+            }
+        });
 
     $(".alert").hide();
 
