@@ -1,0 +1,20 @@
+#quote-of-the-week {
+    font-style: italic;
+}
+
+textarea {
+   resize: none;
+   color: black;
+   padding: 1rem;
+   border-radius: 5px;
+}
+
+.index-alert {
+    width: 52rem;
+    margin: 0 auto;
+}
+
+.select-quote-date-text {
+    color: white;
+    padding-top: 2rem;
+}

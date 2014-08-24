@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title>tkmdc - Admin Console</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]>
+    <script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.firebase.com/js/client/1.0.19/firebase.js"></script>
+    <![endif]-->
+
+    <script src="//cdn.firebase.com/js/client/1.0.19/firebase.js"></script>
+    <script src="assets/js/modernizr.js"></script>
+</head>
+<body>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">tKMdc</a>
+            </div>
+            <div class="navbar-collapse collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">HOME</a></li>
+                    <!--<li><a href="about.html">ABOUT</a></li>-->
+                    <!--<li><a href="contact.html">CONTACT</a></li>-->
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+
+    <div class="container mtb">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Quotes
+                    </div>
+                    <div class="panel-body">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li>
+                                <a href="quotes-new.html">
+                                    New Quote
+                                        <span class="badge alert-danger pull-right">
+                                            <span class="glyphicon glyphicon-record"></span>
+                                        </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="quotes-list.html">
+                                    Quote List
+                                        <span class="badge alert-success pull-right">
+                                            <span class="glyphicon glyphicon-th-list"></span>
+                                        </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Comments
+                    </div>
+                    <div class="panel-body">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li>
+                                <a href="comment-list.html">
+                                    Comment List
+                                        <span class="badge alert-success pull-right">
+                                            <span class="glyphicon glyphicon-th-list"></span>
+                                        </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Blog Entries
+                    </div>
+                    <div class="panel-body">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li>
+                                <a href="blog-new.html">
+                                    New Blog Entry
+                                        <span class="badge alert-danger pull-right">
+                                            <span class="glyphicon glyphicon-record"></span>
+                                        </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="blog-list.html">
+                                    Blog Entry List
+                                        <span class="badge alert-success pull-right">
+                                            <span class="glyphicon glyphicon-th-list"></span>
+                                        </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Microblog
+                    </div>
+                    <div class="panel-body">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li>
+                                <a href="microblog-new.html">
+                                    New MB Entry
+                                        <span class="badge alert-danger pull-right">
+                                            <span class="glyphicon glyphicon-record"></span>
+                                        </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="microblog-list.html">
+                                    Microblog
+                                        <span class="badge alert-success pull-right">
+                                            <span class="glyphicon glyphicon-th-list"></span>
+                                        </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9 col-md-9 col-sm-9">
+                <div class="container-fluid">
+                    <div class="jumbotron">
+                        <div class="row-fluid text-center text-muted">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <h1>New Microblog Post</h1>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <br/>
+                        <div class="alert alert-danger alert-dismissable quote-form-alert fade in" role="alert" id="microblog-error-alert">
+                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <strong>Oh no!</strong> Something went wrong.
+                        </div>
+                        <div class="alert alert-success alert-dismissable quote-form-alert fade in" role="alert" id="microblog-success-alert">
+                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <strong>Success!</strong> Microblog post is now up on the site.
+                        </div>
+                        <form action="#" id="microblog-new-form">
+                            <div class="row-fluid">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                        </span>
+                                        <textarea class="form-control" id="microblog-post-input"
+                                                  style="resize: none;" maxlength="800"></textarea>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <br/>
+                            <button class="submit btn btn-primary center-block">Post</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/retina-1.1.0.js"></script>
+    <script src="assets/js/jquery.hoverdir.js"></script>
+    <script src="assets/js/jquery.hoverex.min.js"></script>
+    <script src="assets/js/jquery.prettyPhoto.js"></script>
+    <script src="assets/js/jquery.isotope.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/admin/microblog-new.js"></script>
+</body>
+</html>
