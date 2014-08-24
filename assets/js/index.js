@@ -20,9 +20,12 @@
                 window.location = "dashboard.html"
             } else {
                 $("#login-warning-alert").show();
+                $("#login-form-hide").hide();
             }
         } else {
             // user is logged out
+            $("#login-success-alert").show();
+            $("#login-form-hide").show();
         }
     });
 
@@ -33,6 +36,10 @@
             email: $("#username")[0].value,
             password: $("#password")[0].value
         });
+    });
+
+    $("#logout").on("click", function(e) {
+
     });
 
 })(jQuery);
