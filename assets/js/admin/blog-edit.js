@@ -19,10 +19,16 @@
                 }
             } else {
                 // user is logged out
+                window.location = "index.html";
             }
         });
 
     $(".alert").hide();
+
+    $("#logout").on("click", function(e) {
+        e.preventDefault();
+        authClient.logout();
+    });
 
     firebase.child("blog").child(entry_id).on("value", function(snapshot) {
 

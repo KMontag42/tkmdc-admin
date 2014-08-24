@@ -20,6 +20,11 @@
 
     $(".alert").alert().hide();
 
+    $("#logout").on("click", function(e) {
+        e.preventDefault();
+        authClient.logout();
+    });
+
     $("#microblog-new-form").on("submit", function(e) {
         e.preventDefault();
 

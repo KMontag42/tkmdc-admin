@@ -21,6 +21,11 @@
             }
         });
 
+    $("#logout").on("click", function(e) {
+        e.preventDefault();
+        authClient.logout();
+    });
+
     firebase.child("quotes").on("value", function(snapshot) {
         if (!page_loaded)
             var quotes = snapshot.val();

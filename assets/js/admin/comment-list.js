@@ -20,6 +20,11 @@
                 // user is logged out
             }
         });
+
+    $("#logout").on("click", function(e) {
+        e.preventDefault();
+        authClient.logout();
+    });
     
     firebase.child("quote-comments").on("value", function(snapshot) {
         

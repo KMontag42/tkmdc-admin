@@ -21,6 +21,11 @@
 
     $(".alert").alert().hide();
 
+    $("#logout").on("click", function(e) {
+        e.preventDefault();
+        authClient.logout();
+    });
+
     $("#new-blog-entry-form").on("submit", function(e) {
         e.preventDefault();
 
