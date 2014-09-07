@@ -1,0 +1,15 @@
+.complete-todo-item:hover {
+    color: #428bca;
+}
+
+.delete-todo-item:hover {
+    color: #428bca;
+}
+
+.complete-todo-item.completed{
+    color: #428bca;
+}
+
+.todo-item.completed {
+    text-decoration: line-through;
+}
