@@ -68,13 +68,15 @@
                 if (error == "null") {
 
                 } else {
-                    $(e.target).parent().parent().parent().remove();
+
                 }
             });
         });
     });
 
-//    firebase.child("todo").on("child_added")
+    firebase.child("todo").on("child_removed", function(snapshot) {
+       $("#"+snapshot.name()).remove();
+    });
 
     $("#new-todo").on("submit", function(e) {
         e.preventDefault();
