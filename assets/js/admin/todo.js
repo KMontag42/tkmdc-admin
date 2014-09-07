@@ -89,7 +89,7 @@
             if (error == "null") {
 
             } else {
-                $("#new-todo-input").value = "";
+                $("#new-todo-input").val("");
             }
         });
     });
