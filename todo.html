@@ -71,13 +71,11 @@
                     </thead>
                     <tbody id="todo-items">
                         <script id="todo-items-template" type="text/x-handlebars-template">
-                            {{#each this}}
-                                <tr>
-                                    <td class="small todo-item {{#if completed}}completed{{/if}}">{{item}}</td>
-                                    <td><span class="complete-todo-item {{#if completed}}completed{{/if}}"><span class="glyphicon glyphicon-check" data-fbid="{{id}}"></span></span></td>
-                                    <td><span class="delete-todo-item"><span class="glyphicon glyphicon-trash" data-fbid="{{id}}"></span></span></td>
-                                </tr>
-                            {{/each}}
+                            <tr>
+                                <td class="small todo-item {{#if completed}}completed{{/if}}">{{item}}</td>
+                                <td><span class="complete-todo-item {{#if completed}}completed{{/if}}"><span class="glyphicon glyphicon-check" data-fbid="{{id}}"></span></span></td>
+                                <td><span class="delete-todo-item"><span class="glyphicon glyphicon-trash" data-fbid="{{id}}"></span></span></td>
+                            </tr>
                         </script>
                     </tbody>
                 </table>

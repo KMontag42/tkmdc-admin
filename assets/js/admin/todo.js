@@ -28,57 +28,53 @@
         authClient.logout();
     });
 
-    firebase.child("todo").on("value", function(snapshot) {
+    firebase.child("todo").on("child_added", function(snapshot) {
+        var todo_item = snapshot.val();
 
-        if (!page_loaded) {
-            var todo_items = snapshot.val();
+        todo_item["id"] = snapshot.name();
+        console.log(todo_item);
 
-            for (q in todo_items) {
-                todo_items[q]["id"] = q;
-            }
+        $("#todo-items").append(todo_template(todo_item));
 
-            $("#todo-items").append(todo_template(todo_items));
-
-            $(".complete-todo-item").on("click", function(e) {
-                if ($(e.target).parent().hasClass("completed")) {
-                    firebase.child("todo").child($(e.target).data("fbid")).update({
-                        completed: false
-                    }, function(error) {
-                        if (error == "null") {
-
-                        } else {
-                            $(e.target).parent().parent().parent().children(".todo-item").removeClass("completed");
-                            $(".complete-todo-item > [data-fbid=" + $(e.target).data("fbid") + "]").parent().removeClass("completed");
-                        }
-                    });
-                } else {
-                    firebase.child("todo").child($(e.target).data("fbid")).update({
-                        completed: true
-                    }, function(error) {
-                        if (error == "null") {
-
-                        } else {
-                            $(e.target).parent().parent().parent().children(".todo-item").addClass("completed");
-                            $(".complete-todo-item > [data-fbid=" + $(e.target).data("fbid") + "]").parent().addClass("completed");
-                        }
-                    });
-                }
-
-            });
-
-            $(".delete-todo-item").on("click", function(e) {
-                firebase.child("todo").child($(e.target).data("fbid")).remove(function(error) {
+        $(".complete-todo-item").on("click", function(e) {
+            if ($(e.target).parent().hasClass("completed")) {
+                firebase.child("todo").child($(e.target).data("fbid")).update({
+                    completed: false
+                }, function(error) {
                     if (error == "null") {
 
                     } else {
-                        $(e.target).parent().parent().parent().remove();
+                        $(e.target).parent().parent().parent().children(".todo-item").removeClass("completed");
+                        $(".complete-todo-item > [data-fbid=" + $(e.target).data("fbid") + "]").parent().removeClass("completed");
                     }
                 });
-            });
+            } else {
+                firebase.child("todo").child($(e.target).data("fbid")).update({
+                    completed: true
+                }, function(error) {
+                    if (error == "null") {
 
-            page_loaded = true;
-        }
+                    } else {
+                        $(e.target).parent().parent().parent().children(".todo-item").addClass("completed");
+                        $(".complete-todo-item > [data-fbid=" + $(e.target).data("fbid") + "]").parent().addClass("completed");
+                    }
+                });
+            }
+
+        });
+
+        $(".delete-todo-item").on("click", function(e) {
+            firebase.child("todo").child($(e.target).data("fbid")).remove(function(error) {
+                if (error == "null") {
+
+                } else {
+                    $(e.target).parent().parent().parent().remove();
+                }
+            });
+        });
     });
+
+//    firebase.child("todo").on("child_added")
 
     $("#new-todo").on("submit", function(e) {
         e.preventDefault();
@@ -88,7 +84,11 @@
         firebase.child("todo").push({
             item: $("#new-todo-input").val()
         }, function(error) {
-            // callback
+            if (error == "null") {
+
+            } else {
+                $("#new-todo-input").value = "";
+            }
         });
     });
 
