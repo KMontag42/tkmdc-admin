@@ -31,6 +31,8 @@
 
         firebase.child('microblog').push({
             entry: $("#microblog-post-input")[0].value,
+            image: $("#microblog-image-input")[0].value,
+            image_alt: $("#microblog-image-alt-input")[0].value,
             date: Date.now()
         }, function(error) {
             if (error == "null") {
