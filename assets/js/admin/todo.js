@@ -34,7 +34,7 @@
         todo_item["id"] = snapshot.name();
         console.log(todo_item);
 
-        $("#todo-items").append(todo_template(todo_item));
+        $("#todo-items").append(todo_template(todo_item)).hide().fadeIn(1000);
 
         $(".complete-todo-item").on("click", function(e) {
             if ($(e.target).parent().hasClass("completed")) {
